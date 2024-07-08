@@ -1,0 +1,2 @@
+# nmp-publish
+auto publish
