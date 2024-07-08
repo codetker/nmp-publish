@@ -1,0 +1,22 @@
+{
+  "name": "nmp-publish",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetker/nmp-publish.git"
+  },
+  "keywords": [
+    "publish"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codetker/nmp-publish/issues"
+  },
+  "homepage": "https://github.com/codetker/nmp-publish#readme"
+}
