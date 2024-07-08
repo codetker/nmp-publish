@@ -1,0 +1,16 @@
+{
+  "name": "test-a-1k",
+  "version": "1.0.0",
+  "description": "1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": false,
+  "dependencies": {
+    "test-b-1k": "^1.0.0"
+  }
+}

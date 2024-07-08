@@ -1,8 +1,12 @@
 {
-  "name": "nmp-publish",
+  "name": "nmp-publish-test",
   "version": "1.0.0",
   "description": "test",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/codetker/nmp-publish/issues"
   },
-  "homepage": "https://github.com/codetker/nmp-publish#readme"
+  "homepage": "https://github.com/codetker/nmp-publish#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^8.1.6"
+  }
 }
