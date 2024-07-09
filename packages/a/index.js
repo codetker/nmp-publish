@@ -1,3 +1,3 @@
 const k = require('test-b-1k');
 
-console.log(k && k.b);
+console.log(k.b - 1);
