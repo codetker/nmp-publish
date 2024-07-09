@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      - run: npx yarn
       - run: npx lerna version patch --yes
       - run: npx lerna publish from-package --yes
         env:

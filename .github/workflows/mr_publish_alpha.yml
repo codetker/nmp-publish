@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main
-    types: [closed]
+    types: [opened, synchronize, reopened]
     
 jobs:
 
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      - run: npx yarn
       - run: npx lerna version prerelease --preid=alpha --yes
       - run: npx lerna publish from-package --dist-tag alpha --yes
         env:
