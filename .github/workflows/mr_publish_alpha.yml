@@ -1,0 +1,25 @@
+name: Publish Alpha
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+    
+jobs:
+
+  publish-alpha:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npx lerna version prerelease --preid=alpha --yes
+      - run: npx lerna publish from-package --dist-tag alpha --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
