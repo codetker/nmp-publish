@@ -11,15 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+  
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-      - run: npx yarn
-      - run: git config --global user.name 'codetker'
-      - run: git config --global user.email 'codetker@sina.com'
-      - run: npx lerna version patch --yes
-      - run: npx lerna publish from-package --yes
+
+      - name: Install Dependencies
+        run: npx yarn
+
+      - name: Setup git user
+        run: git config --global user.name 'codetker'
+        run: git config --global user.email 'codetker@sina.com'
+
+      - name: Lerna Version
+        run: npx lerna version patch --yes
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_PRODUCTION }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Lerna Publish
+        run: npx lerna publish from-package --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

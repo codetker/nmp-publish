@@ -7,21 +7,32 @@ on:
     types: [opened, synchronize, reopened]
     
 jobs:
-
   publish-alpha:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+  
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-      - run: npx yarn
-      - run: git config --global user.name 'codetker'
-      - run: git config --global user.email 'codetker@sina.com'
-      - run: npx lerna version prerelease --preid=alpha --yes
-      - run: npx lerna publish from-package --dist-tag alpha --yes
+
+      - name: Install Dependencies
+        run: npx yarn
+
+      - name: Setup git user
+        run: git config --global user.name 'codetker'
+        run: git config --global user.email 'codetker@sina.com'
+
+      - name: Lerna Version alpha
+        run: npx lerna version prerelease --preid=alpha --yes
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  
+      - name: Lerna Publish Alpha
+        run: npx lerna publish from-package --dist-tag alpha --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
