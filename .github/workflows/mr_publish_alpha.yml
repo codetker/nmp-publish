@@ -23,8 +23,10 @@ jobs:
       - name: Install Dependencies
         run: npx yarn
 
-      - name: Setup git user
+      - name: Setup git userName
         run: git config --global user.name 'codetker'
+
+      - name: Setup git userEmail
         run: git config --global user.email 'codetker@sina.com'
 
       - name: Lerna Version alpha
