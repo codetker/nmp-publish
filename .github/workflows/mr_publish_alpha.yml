@@ -19,6 +19,9 @@ jobs:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
       - run: npx yarn
+      - run: |
+        git config --global user.name 'codetker'
+        git config --global user.email 'codetker@sina.com'
       - run: npx lerna version prerelease --preid=alpha --yes
       - run: npx lerna publish from-package --dist-tag alpha --yes
         env:
