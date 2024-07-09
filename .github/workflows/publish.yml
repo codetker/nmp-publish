@@ -13,9 +13,8 @@ jobs:
     steps:
       - name: Checkout Branch
         uses: actions/checkout@v3
-
-      - name: Set Branch
-        run: git checkout -b ${{ github.head_ref || github.ref_name }}
+        with:
+          ref: ${{ github.head_ref }}
   
       - name: Setup Node
         uses: actions/setup-node@v2
