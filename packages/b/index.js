@@ -1,5 +1,5 @@
 const a = {
-  b: 1
+  b: 3
 };
 
 module.exports = a;
