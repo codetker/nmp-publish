@@ -1,6 +1,6 @@
 {
   "name": "test-a-1k",
-  "version": "0.0.2-alpha.2",
+  "version": "0.0.2",
   "description": "1",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,6 @@
   "license": "ISC",
   "private": false,
   "dependencies": {
-    "test-b-1k": "^0.0.2-alpha.2"
+    "test-b-1k": "^0.0.2"
   }
 }
